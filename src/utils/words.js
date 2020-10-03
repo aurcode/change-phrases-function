@@ -1,6 +1,8 @@
 const words = [
-    'worker',
+    'hi',
     'innovative',
+    'go',
+    'worker',
     'developer',
 ]
 

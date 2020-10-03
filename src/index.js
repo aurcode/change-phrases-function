@@ -1,12 +1,14 @@
 import words from './utils/words';
 import ChangeWords from './utils/ChangeWords';
 
-const wordToChange = document.getElementById("word-to-change");
+let word = words[1]
+console.log(word)
+ChangeWords(word)
 
+// for(let i=0; i<words.length; i++) {
 
-window.addEventListener('load', () => {
-    setTimeout(()=> {
-        ChangeWords(words)
-    },3000);
-    console.log("primero script")
-})
+//     setTimeout(
+//         ()=>{
+            
+
+console.log('no me bloquean')
