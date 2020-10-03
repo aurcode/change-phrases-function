@@ -6,23 +6,21 @@ function ChangeWords (word) {
             changeDo(dividingWord);
             console.log(300*i);
         }, 400*i/2)
-        // .then(()=>{
-        //     console.log('despues del for')
-        // })
-        setTimeout(() => {
-            //deleteWord(word)
-            console.log(1000*word.length)
-        }, 1000*word.length);
     }
+    setTimeout(() => {
+        deleteWord(word)
+        console.log(800*word.length)
+    }, 700*word.length);
 }
 
 const deleteWord = async (word) => {
+    console.log("funcionando", word)
     for(let a=1; a<word.length+1; a++){
         setTimeout(() => {
-            //let dividingWord = word.slice(0, i);
-            //changeDo(dividingWord);
-            console.log(funcionando);
-        }, 400*i)
+            let dividingWord = word.slice(0, word.length-a);
+            changeDo(dividingWord);
+            console.log(dividingWord);
+        }, 100*a)
     }
 }
 
