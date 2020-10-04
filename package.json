@@ -1,7 +1,7 @@
 {
-  "name": "letras_cambiantes",
+  "name": "change-phrases-function",
   "version": "1.0.0",
-  "description": "",
+  "description": "It is a function which I created to modify the sun, choose a word at random, write it down and then delete it to repeat the cycle",
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
