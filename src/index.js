@@ -1,14 +1,8 @@
 import words from './utils/words';
 import ChangeWords from './utils/ChangeWords';
 
-let word = words[1]
-console.log(word)
-ChangeWords(word)
+ChangeWords(words[1]);
 
-// for(let i=0; i<words.length; i++) {
+let dom = document.getElementById("word-to-change");
 
-//     setTimeout(
-//         ()=>{
-            
-
-console.log('no me bloquean')
+//console.log(dom.textContent))

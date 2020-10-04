@@ -1,9 +1,7 @@
 const words = [
-    'hi',
-    'innovative',
-    'go',
-    'worker',
-    'developer',
+    'travel',
+    'keep learning',
+    'build things on the Internet',
 ]
 
 export default words;

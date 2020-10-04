@@ -4,22 +4,18 @@ function ChangeWords (word) {
         setTimeout(() => {
             let dividingWord = word.slice(0, i);
             changeDo(dividingWord);
-            console.log(300*i);
-        }, 400*i/2)
+        }, 200*i)
     }
     setTimeout(() => {
         deleteWord(word)
-        console.log(800*word.length)
-    }, 700*word.length);
+    }, 500*word.length);
 }
 
-const deleteWord = async (word) => {
-    console.log("funcionando", word)
+const deleteWord = (word) => {
     for(let a=1; a<word.length+1; a++){
-        setTimeout(() => {
-            let dividingWord = word.slice(0, word.length-a);
+        setTimeout(async () => {
+            let dividingWord = await word.slice(0, word.length-a);
             changeDo(dividingWord);
-            console.log(dividingWord);
         }, 100*a)
     }
 }
@@ -27,13 +23,11 @@ const deleteWord = async (word) => {
 const changeDo = async (word) => {
     const wordToChange = null || document.getElementById("word-to-change");
     console.log(word);
-    let change= document.getElementById("word-to-change");
-    console.log(change);
     wordToChange.innerHTML = await NewPhrase(word);
 }
 
 const NewPhrase = (word) => {
-    const view = `<h1>I'm <span>${word}</span></h1>` ;
+    const view = `<h1>I like to <span>${word}</span></h1>` ;
     return view;
 }
 
