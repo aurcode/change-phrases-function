@@ -1,4 +1,6 @@
 import phrases from './utils/phrases';
 import ChangeWords from './utils/ChangeWords';
 
-ChangeWords(phrases[0], phrases, "word-to-change");
+window.addEventListener("load", () => setTimeout(function(){
+    ChangeWords(phrases[0], phrases, "word-to-change")
+}, 1300));
