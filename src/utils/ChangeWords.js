@@ -1,38 +1,35 @@
-function ChangeWords (word, phrases) {
-    
+function ChangeWords (word, phrases, dom) {
     for(let i=1; i<word.length+1; i++){
         setTimeout(() => {
             let dividingWord = word.slice(0, i);
-            changeDo(dividingWord);
+            changeDo(dividingWord, dom);
         }, 180*i)
     }
     setTimeout(() => {
-        let newPhrase = chooseTheNextSentenceToBeWrittenAtRandom(phrases);
-        console.log("futura a escribri", newPhrase)
-        deleteWord(word, newPhrase, phrases);
+        let newPhrase = chooseTheNextSentenceToBeWrittenAtRandom(phrases, word);
+        deleteWord(word, newPhrase, phrases, dom);
     }, 460*word.length);
 }
 
-const chooseTheNextSentenceToBeWrittenAtRandom = (phrases) => {
+const chooseTheNextSentenceToBeWrittenAtRandom = (phrases, word) => {
+    phrases = phrases.filter(item => !word.includes(item));
     return phrases[Math.floor(Math.random() * phrases.length)];
 }
 
-const deleteWord = (word, newPhrase, phrases) => {
-    console.log(document.getElementById("word-to-change").textContent)
+const deleteWord = (word, newPhrase, phrases, dom) => {
     for(let a=1; a<word.length+1; a++){
         setTimeout(async () => {
             let dividingWord = await word.slice(0, word.length-a);
-            changeDo(dividingWord);
+            changeDo(dividingWord, dom);
         }, 100*a)
     }
     setTimeout(() => {
-        ChangeWords(newPhrase, phrases);
+        ChangeWords(newPhrase, phrases, dom);
     }, 100*word.length+400);
 }
 
-const changeDo = async (word) => {
-    const wordToChange = null || document.getElementById("word-to-change");
-    console.log(word);
+const changeDo = async (word, dom) => {
+    const wordToChange = null || document.getElementById(dom);
     wordToChange.innerHTML = await NewPhrase(word);
 }
 
