@@ -1,23 +1,33 @@
-function ChangeWords (word) {
-
+function ChangeWords (word, phrases) {
+    
     for(let i=1; i<word.length+1; i++){
         setTimeout(() => {
             let dividingWord = word.slice(0, i);
             changeDo(dividingWord);
-        }, 200*i)
+        }, 180*i)
     }
     setTimeout(() => {
-        deleteWord(word)
-    }, 500*word.length);
+        let newPhrase = chooseTheNextSentenceToBeWrittenAtRandom(phrases);
+        console.log("futura a escribri", newPhrase)
+        deleteWord(word, newPhrase, phrases);
+    }, 460*word.length);
 }
 
-const deleteWord = (word) => {
+const chooseTheNextSentenceToBeWrittenAtRandom = (phrases) => {
+    return phrases[Math.floor(Math.random() * phrases.length)];
+}
+
+const deleteWord = (word, newPhrase, phrases) => {
+    console.log(document.getElementById("word-to-change").textContent)
     for(let a=1; a<word.length+1; a++){
         setTimeout(async () => {
             let dividingWord = await word.slice(0, word.length-a);
             changeDo(dividingWord);
         }, 100*a)
     }
+    setTimeout(() => {
+        ChangeWords(newPhrase, phrases);
+    }, 100*word.length+400);
 }
 
 const changeDo = async (word) => {

@@ -1,8 +1,4 @@
-import words from './utils/words';
+import phrases from './utils/phrases';
 import ChangeWords from './utils/ChangeWords';
 
-ChangeWords(words[1]);
-
-let dom = document.getElementById("word-to-change");
-
-//console.log(dom.textContent))
+ChangeWords('write code.', phrases);
